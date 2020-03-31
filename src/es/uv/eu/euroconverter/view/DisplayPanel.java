@@ -2,19 +2,18 @@ package es.uv.eu.euroconverter.view;
 
 import es.uv.eu.euroconverter.model.EuroConverterModel;
 import java.awt.Color;
-import java.awt.Component;
-import java.awt.ComponentOrientation;
 import java.awt.Font;
+import java.awt.Dimension;
 import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JTextArea;
+import javax.swing.SwingConstants;
 
 public class DisplayPanel extends JPanel {
     
     private EuroConverterModel model;
-    private JTextArea numbersDisplay;
+    private JLabel numbersDisplay;
     private JLabel rateDisplay;
     
     public DisplayPanel(EuroConverterModel model) {
@@ -25,25 +24,26 @@ public class DisplayPanel extends JPanel {
         
         this.model = model;
         
-        this.numbersDisplay = new JTextArea();
-        this.rateDisplay = new JLabel();
+        this.numbersDisplay = new JLabel(model.getNumber(), SwingConstants.RIGHT);
+        this.rateDisplay = new JLabel("Exchange rate: " + model.getExchangeRate(), SwingConstants.LEFT);
         
-        numbersDisplay.setEditable(false);
-        numbersDisplay.setBackground(new Color(197,179,88));
         numbersDisplay.setFont(new Font("Sans", Font.BOLD, 65));
         numbersDisplay.setForeground(Color.DARK_GRAY);
-        numbersDisplay.setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
-        numbersDisplay.setText(model.getNumber());
+        numbersDisplay.setPreferredSize(new Dimension(450, 75));
+        numbersDisplay.setMinimumSize(numbersDisplay.getPreferredSize());
+        numbersDisplay.setMaximumSize(numbersDisplay.getPreferredSize());
+
         
-        rateDisplay.setAlignmentX(Component.LEFT_ALIGNMENT);
-        rateDisplay.setText("Exchange rate: " + model.getExchangeRate());
         rateDisplay.setForeground(Color.BLACK);
+        rateDisplay.setPreferredSize(new Dimension(450, 16));
+        rateDisplay.setMinimumSize(numbersDisplay.getPreferredSize());
+        rateDisplay.setMaximumSize(numbersDisplay.getPreferredSize());
         
         this.add(numbersDisplay);
         this.add(rateDisplay);
     }
 
-    public JTextArea getNumbersDisplay() {
+    public JLabel getNumbersDisplay() {
         return numbersDisplay;
     }
 

@@ -5,6 +5,7 @@ import es.uv.eu.euroconverter.model.EuroConverterModel;
 import es.uv.eu.euroconverter.view.EuroConverterView;
 import java.awt.event.*;
 import javax.swing.JOptionPane;
+import javax.swing.UIManager;
 
 public class EuroConverterController {
     
@@ -14,7 +15,15 @@ public class EuroConverterController {
     public EuroConverterController(EuroConverterModel model, EuroConverterView view) {
         this.model = model;
         this.view = view;
+        view.addWindowListener(new EuroConverterControllerWindowListener());
         view.setActionListener(new EuroConverterControllerActionListener());
+    }
+    
+    class EuroConverterControllerWindowListener extends WindowAdapter {
+        @Override
+        public void windowClosing(WindowEvent e) {
+            System.exit(0);
+        }
     }
     
     class EuroConverterControllerActionListener implements ActionListener {
@@ -33,13 +42,16 @@ public class EuroConverterController {
                     break;
                 case "changeRate":
                     try {
+                        UIManager.put("OptionPane.okButtonText", "Accept");
                         newExchangeRate = Float.parseFloat(JOptionPane.showInputDialog(null, 
                                 "New exchange rate"));
                         model.setExchangeRate(newExchangeRate);
                         view.getDisplayPanel().getRateDisplay().setText("Exchange rate: " + model.getExchangeRate());
-                    } catch (NumberFormatException e) {
+                    } 
+                    catch (NumberFormatException e) {
                         JOptionPane.showMessageDialog(null, "Incorrect data format!", "Error", JOptionPane.ERROR_MESSAGE);
                     }
+                    catch (NullPointerException e) {}
                     break;
                 case "euroDollar":
                     model.setTrans("mult");
