@@ -32,12 +32,8 @@ public class DisplayPanel extends JPanel {
         numbersDisplay.setPreferredSize(new Dimension(450, 75));
         numbersDisplay.setMinimumSize(numbersDisplay.getPreferredSize());
         numbersDisplay.setMaximumSize(numbersDisplay.getPreferredSize());
-
         
         rateDisplay.setForeground(Color.BLACK);
-        rateDisplay.setPreferredSize(new Dimension(450, 16));
-        rateDisplay.setMinimumSize(numbersDisplay.getPreferredSize());
-        rateDisplay.setMaximumSize(numbersDisplay.getPreferredSize());
         
         this.add(numbersDisplay);
         this.add(rateDisplay);
