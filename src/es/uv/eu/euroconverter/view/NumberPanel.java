@@ -15,7 +15,7 @@ public class NumberPanel extends JPanel {
         this.setLayout(new GridLayout(3,4,5,5));
         
         this.numberButtons = new JButton[12];
-        for (int i=0; i<12; i++) {
+        for (int i=0; i<buttonsNames.length; i++) {
             numberButtons[i] = new JButton(buttonsNames[i]);
             numberButtons[i].setFont(new Font("Sans", Font.BOLD, 20));
             this.add(numberButtons[i]);
