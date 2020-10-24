@@ -1,4 +1,4 @@
-package es.uv.eu.euroconverter.view;
+package es.uv.eu.currencyconverter.view;
 
 import java.awt.*;
 import java.awt.event.ActionListener;

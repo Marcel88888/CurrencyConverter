@@ -1,6 +1,6 @@
-package es.uv.eu.euroconverter.view;
+package es.uv.eu.currencyconverter.view;
 
-import es.uv.eu.euroconverter.model.EuroConverterModel;
+import es.uv.eu.currencyconverter.model.CurrencyConverterModel;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Dimension;
@@ -12,11 +12,11 @@ import javax.swing.SwingConstants;
 
 public class DisplayPanel extends JPanel {
     
-    private EuroConverterModel model;
+    private CurrencyConverterModel model;
     private JLabel numbersDisplay;
     private JLabel rateDisplay;
     
-    public DisplayPanel(EuroConverterModel model) {
+    public DisplayPanel(CurrencyConverterModel model) {
         
         this.setLayout(new BoxLayout(this,  BoxLayout.Y_AXIS));
         this.setBackground(new Color(197,179,88));

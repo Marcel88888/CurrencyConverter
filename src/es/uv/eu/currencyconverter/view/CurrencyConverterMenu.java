@@ -1,17 +1,17 @@
-package es.uv.eu.euroconverter.view;
+package es.uv.eu.currencyconverter.view;
 
 import java.awt.event.ActionListener;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 
-public class EuroConverterMenu extends JMenuBar {
+public class CurrencyConverterMenu extends JMenuBar {
     
     private JMenu calculator;
     private JMenuItem exit;
     private JMenuItem changeRate;
     
-    public EuroConverterMenu() {
+    public CurrencyConverterMenu() {
         
         this.calculator = new JMenu("Calculator");
         

@@ -1,28 +1,29 @@
-package es.uv.eu.euroconverter.view;
+package es.uv.eu.currencyconverter.view;
 
-import es.uv.eu.euroconverter.model.EuroConverterModel;
+import es.uv.eu.currencyconverter.model.CurrencyConverterModel;
+import es.uv.eu.currencyconverter.model.CurrencyConverterModel;
 
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.BorderFactory;
 import javax.swing.JFrame;
 
-public class EuroConverterView extends JFrame {
+public class CurrencyConverterView extends JFrame {
     
-    private EuroConverterModel model;
-    private EuroConverterMenu menu;
+    private CurrencyConverterModel model;
+    private CurrencyConverterMenu menu;
     private DisplayPanel displayPanel;
     private NumberPanel numberPanel;
     private OperationPanel operationPanel;
     private ClearPanel clearPanel;
     
-    public EuroConverterView(EuroConverterModel model) {
-        super("EuroConverter");
+    public CurrencyConverterView(CurrencyConverterModel model) {
+        super("CurrencyConverter");
         this.setLayout(new BorderLayout(17, 8));
         this.setSize(450, 400);
         
         this.model = model;
-        this.menu = new EuroConverterMenu();
+        this.menu = new CurrencyConverterMenu();
         this.displayPanel = new DisplayPanel(model);
         this.numberPanel = new NumberPanel();
         this.operationPanel = new OperationPanel();
@@ -39,11 +40,11 @@ public class EuroConverterView extends JFrame {
         this.setVisible(true);
     }
 
-    public EuroConverterModel getModel() {
+    public CurrencyConverterModel getModel() {
         return model;
     }
 
-    public EuroConverterMenu getMenu() {
+    public CurrencyConverterMenu getMenu() {
         return menu;
     }
 
@@ -63,7 +64,7 @@ public class EuroConverterView extends JFrame {
         return clearPanel;
     }
 
-    public void setModel(EuroConverterModel model) {
+    public void setModel(CurrencyConverterModel model) {
         this.model = model;
     }
     

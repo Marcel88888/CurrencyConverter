@@ -1,32 +1,31 @@
-package es.uv.eu.euroconverter.controller;
+package es.uv.eu.currencyconverter.controller;
 
-
-import es.uv.eu.euroconverter.model.EuroConverterModel;
-import es.uv.eu.euroconverter.view.EuroConverterView;
+import es.uv.eu.currencyconverter.model.CurrencyConverterModel;
+import es.uv.eu.currencyconverter.view.CurrencyConverterView;
 import java.awt.event.*;
 import javax.swing.JOptionPane;
 import javax.swing.UIManager;
 
-public class EuroConverterController {
+public class CurrencyConverterController {
     
-    private EuroConverterModel model;
-    private EuroConverterView view;
+    private CurrencyConverterModel model;
+    private CurrencyConverterView view;
     
-    public EuroConverterController(EuroConverterModel model, EuroConverterView view) {
+    public CurrencyConverterController(CurrencyConverterModel model, CurrencyConverterView view) {
         this.model = model;
         this.view = view;
-        view.addWindowListener(new EuroConverterControllerWindowListener());
-        view.setActionListener(new EuroConverterControllerActionListener());
+        view.addWindowListener(new CurrencyConverterControllerWindowListener());
+        view.setActionListener(new CurrencyConverterControllerActionListener());
     }
     
-    class EuroConverterControllerWindowListener extends WindowAdapter {
+    class CurrencyConverterControllerWindowListener extends WindowAdapter {
         @Override
         public void windowClosing(WindowEvent e) {
             System.exit(0);
         }
     }
     
-    class EuroConverterControllerActionListener implements ActionListener {
+    class CurrencyConverterControllerActionListener implements ActionListener {
         
         @Override
         public void actionPerformed(ActionEvent ae) {
@@ -72,7 +71,7 @@ public class EuroConverterController {
                     model.setNumber(result);
                     break;
                 case "clear":
-                    model = new EuroConverterModel();
+                    model = new CurrencyConverterModel();
                     view.setModel(model);
                     view.getDisplayPanel().getNumbersDisplay().setText(model.getNumber());
                     view.getDisplayPanel().getRateDisplay().setText("Exchange rate: " + model.getExchangeRate());

@@ -1,13 +1,13 @@
-package es.uv.eu.euroconverter.model;
+package es.uv.eu.currencyconverter.model;
 
-public final class EuroConverterModel {
+public final class CurrencyConverterModel {
   
     private float exchangeRate = (float) 1.11253;
     private String number, trans="mult";
     private boolean newNumber;
     
     
-    public EuroConverterModel() {
+    public CurrencyConverterModel() {
         reset();
     }
 
